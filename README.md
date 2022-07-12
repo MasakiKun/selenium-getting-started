@@ -44,7 +44,7 @@ System.setProperty("webdriver.chrome.driver", "c:\\selenium\\webdriver\\chromedr
 딱히 설정할 것이 없다면 이 부분은 건너뛰어도 관계 없다.
 
 * 헤드리스 모드(브라우저가 화면에 표시되지 않고 백그라운드로 동작한다)를 사용할 때는 --headless 인자를 추가한다.
-* 시스템에 여러개의 크롬이 설치되어 있다면 setBinary() 메서드에 크롬이 설치된 경로를 지정해준다.
+* 만약 시스템에 여러개의 크롬이 설치되어 있고, 실행될 크롬을 지정하고 싶다면 setBinary() 메서드에 크롬이 설치된 경로를 지정해준다.
 * ChromeOptions를 이용해서 제어할 수 있는 옵션 목록은 [크롬 웹 드라이버 문서](https://chromedriver.chromium.org/capabilities)를 참고한다.
 ~~그나저나 어째서인지 공식문서에 --headless 옵션은 없다-_-~~
 
@@ -54,7 +54,7 @@ options.addArguments("--headless");
 options.setBinary("/path/to/chrome/installed");
 ```
 
-5. ChromeDriver의 인스턴스를 생성하면, 자동으로 브라우저가 생성된다. 
+5. ChromeDriver의 인스턴스를 생성하면, 자동으로 브라우저가 표시된다. 
 만약 4번에서 ChromeOptions 인스턴스를 생성했다면, 생성자 인자로 이 옵션을 전달해준다.
 
 ```java
@@ -66,7 +66,7 @@ WebDriver driver = new ChromeDriver(options);
 ![](https://user-images.githubusercontent.com/12710869/178525331-6c7db943-af06-41de-8490-674a94f6b006.png)
 
 6. 이제부터는 ChromeDriver 의 인스턴스를 이용해서 브라우저를 제어하면 된다.
-만약 헤드리스 모드로 실행한 경우에는, 프로그램 마지막에 quit() 메서드를 실행해서, 반드시 크롬 프로세스를 종료하도록 한다.
+만약 헤드리스 모드로 실행한 경우에는, 프로그램 마지막에 반드시 quit() 메서드를 실행해서 크롬 프로세스를 종료하도록 한다.
 
 ```java
 driver.quit();
