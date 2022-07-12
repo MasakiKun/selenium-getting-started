@@ -90,9 +90,12 @@ driver.get("https://datatracker.ietf.org/doc/html/rfc2616");  // HTTP/1.1 스펙
 현재 표시중인 웹페이지의 요소를 조회할 수 있다.
 
 ```java
-WebElement el1 = driver.findElement(By.id("section1.1"));  // document.getElementById("section1.1");
-List<WebElement> els = driver.findElements(By.tagName("input"));  // document.getElementsByTagName("input");
-List<WebElement> querybase = driver.findElements(By.cssSelector("div.success"));   // document.querySelector("div.success");
+// document.getElementById("section1.1");
+WebElement el1 = driver.findElement(By.id("section1.1"));
+// document.getElementsByTagName("input");
+List<WebElement> els = driver.findElements(By.tagName("input"));
+// document.querySelector("div.success");
+List<WebElement> selectorBase = driver.findElements(By.cssSelector("div.success"));
 ```
 
 Selenium은 특이하게(?) 자바스크립트에서 제공하는 요소 탐색 방법 외에도 XPath를 이용해서 요소를 찾는 방법도 제공한다.
@@ -119,6 +122,11 @@ driver.findElements(By.tagName("input")).get(0).sendKeys("hello!");
 Selenium은 요소를 삭제하는 기능은 없지만, 제어중인 브라우저에서 자바스크립트를 직접 실행함으로써 요소를 삭제할 수 있다.
 구체적으로는 ```document.getElementXXX()``` 함수를 이용해서 요소를 찾은 다음, ```remove()``` 함수를 호출해서 요소를 제거한다.
 
+~~하지만 솔까말 jQuery 쓰면 그냥 되는걸...~~
+
+이때, WebDriver 인터페이스는 스크립트를 실행할 수 있는 ```executeScript()``` 메서드를 제공하지 않으므로
+반드시 ```ChromeDriver``` 클래스로 캐스팅해야 한다.
+
 ```java
 ((ChromeDriver)driver).executeScript("document.getElementById('do-not-need-element').remove();");
 ```
@@ -126,7 +134,7 @@ Selenium은 요소를 삭제하는 기능은 없지만, 제어중인 브라우�
 ### 현재 표시중인 웹페이지 URL 조회
 
 WebDriver의 ```getCurrentUrl()``` 메서드를 이용해서 현재 표시중인 페이지의 URL을 조회할 수 있다.
-로그인 페이지를 제어해서 로그인 액션 후, 정상 로그인 되었는지 등에 사용할 수 있겠다.
+로그인 페이지를 제어해서 로그인 시도 후, 로그인 성공 페이지로 전환되었는지 확인할 때 등에 사용해 볼 수 있겠다.
 
 ```java
 System.out.println(driver.getCurrentUrl());
