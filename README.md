@@ -17,7 +17,9 @@ Selenium은 프로그래밍 언어를 통해서 웹 브라우저를 자동화할
 
 1. 프로젝트에 Selenium Java의 의존성을 추가한다.
 
-`implementation("org.seleniumhq.selenium:selenium-java:4.3.0")`
+```
+implementation("org.seleniumhq.selenium:selenium-java:4.3.0")
+```
 
 2. 크롬 웹 드라이버를 다운로드해서, 적당한 경로에 압축을 풀어둔다. 여기서는 크롬 외 브라우저의 웹 드라이버도 명시해둔다.
 
@@ -33,7 +35,9 @@ Selenium은 프로그래밍 언어를 통해서 웹 브라우저를 자동화할
 
 3. 2에서 다운로드한 웹 드라이버의 전체 경로를, 파일명까지 포함해서 webdriver.chrome.driver 환경변수로 지정한다.
 
-> System.setProperty("webdriver.chrome.driver", "c:\\selenium\\webdriver\\chromedriver.exe");
+```java
+System.setProperty("webdriver.chrome.driver", "c:\\selenium\\webdriver\\chromedriver.exe");
+```
 
 4. 크롬 실행시에 옵션을 주고 싶다면, ChromeOptions 인스턴스를 생성해서 인자를 추가한다.
 딱히 설정할 것이 없다면 이 부분은 건너뛰어도 관계 없다.
