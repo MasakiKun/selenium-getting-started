@@ -1,0 +1,17 @@
+plugins {
+	id("java")
+}
+
+[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation("org.seleniumhq.selenium:selenium-java:4.3.0")
+	implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.3.0")
+}
