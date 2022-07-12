@@ -87,7 +87,7 @@ driver.get("https://datatracker.ietf.org/doc/html/rfc2616");  // HTTP/1.1 스펙
 
 ### 요소 찾기
 
-웹 드라이버의 ```findElement()``` 혹은 ```findElements()``` 메소드와 정적 메서드인 By를 조합해서,
+웹 드라이버의 ```findElement()``` 혹은 ```findElements()``` 메소드와 정적 클래스인 By를 조합해서,
 현재 표시중인 웹페이지의 요소를 조회할 수 있다.
 
 ```java
