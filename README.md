@@ -151,7 +151,7 @@ System.out.println(driver.getCurrentUrl());
 사실 Selenium의 공식 문서를 살펴봐도, ```WebDriver.get()``` 메서드가 실행 완료되었을 때, 페이지의 로딩이 완료됬다고 가정해도 되는지는
 명시되어 있지 않다. 그냥 웹사이트를 연다고만 적혀있을 뿐이다(Ref. [Browser navigation](https://www.selenium.dev/documentation/webdriver/browser/navigation/)).
 
-게다가 근래의 웹은 웹페이지의 구조만 표시하고, 컨텐츠는 ajax로 받아와서 페이지를 갱신하는 구조일 수도 있다. 예를 들어, 아래 웹페이지를 생각해보자.
+게다가 근래의 웹은 웹페이지의 구조만 표시하고, 컨텐츠는 ajax로 받아와서 페이지를 갱신하는 경우도 많다. 예를 들어, 아래 웹페이지를 생각해보자.
 
 ```html
 <html>
