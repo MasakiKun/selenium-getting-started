@@ -148,7 +148,7 @@ System.out.println(driver.getCurrentUrl());
 이건 말하자면, ```WebDriver.get()``` 메서드가 완료된 뒤에 ```WebDriver.findElement()``` 메서드를 호출한다 해도,
 ```get()``` 메서드가 완료된 시점에서 페이지의 로드가 끝나지 않았을수도 있음을 가리킨다.
 
-사실 Selenium의 공식 문서를 살펴봐도, ```WebDriver.get()``` 메서드가 실행 완료되었을 때 페이지의 로딩이 완료됬다고 가정해도 되는지는
+사실 Selenium의 공식 문서를 살펴봐도, ```WebDriver.get()``` 메서드가 실행 완료되었을 때, 페이지의 로딩이 완료됬다고 가정해도 되는지는
 명시되어 있지 않다. 그냥 웹사이트를 연다고만 적혀있을 뿐이다(Ref. [Browser navigation](https://www.selenium.dev/documentation/webdriver/browser/navigation/)).
 
 게다가 근래의 웹은 웹페이지의 구조만 표시하고, 컨텐츠는 ajax로 받아와서 페이지를 갱신하는 구조일 수도 있다. 예를 들어, 아래 웹페이지를 생각해보자.
@@ -177,8 +177,8 @@ System.out.println(driver.getCurrentUrl());
 ```
 
 위와 같은 페이지 구조라면, 설령 ```WebDriver.get()``` 메서드가 페이지 로딩이 끝난 다음에 처리가 완료된다 하더라도,
-http://real.awesome.greet.word API의 호출이 끝나기 전까지는 ID가 greet인 요소가 생성되어 있지 않았을 것이므로,
-처리가 끝나자마자 ```WebDriver.findElement(By.id("result"))``` 메서드를 실행하면 요소를 찾지 못하고 예외가 발생할 것이다.
+http://real.awesome.greet.word API의 호출이 끝나기 전까지는 ID가 greet인 요소가 생성되어 있지 않았을 것이다.
+이 시점에서 ```WebDriver.findElement(By.id("result"))``` 메서드를 실행하면 요소를 찾지 못하고 예외가 발생할 것이다.
 
 이런 케이스의 해소를 위해, Selenium에서는 3가지의 대기 방법을 제공한다.
 명시적 대기(Explicit wait)와 암시적 대기(Implicit wait), 능숙한 대기(Fluent wait)가 그것이다.
