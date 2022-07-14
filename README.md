@@ -205,7 +205,7 @@ WebElement el = new WebDriverWait(driver, Duration.ofSeconds(30))
 
 #### 암시적 대기 (Implicit wait)
 
-암시적 대기는 요소를 찾가 위해서, 지정된 시간 동안 폴링을 계속한다.
+암시적 대기는 요소를 찾기 위해서, 지정된 시간 동안 폴링을 계속한다.
 지정된 시간 동안 해당 요소를 찾아내면 반환하고, 찾아내지 못하면 예외가 발생하는 것은 명시적 대기와 동일하다.
 명시적 대기와 다른 점은, 명시적 대기는 지정한 요소를 찾을 때의 대기 시간을 직접 지정하는 것이고, 암시적 대기는
 어떤 요소이든 ```WebDriver.findElement()```로 요소를 찾을때마다 대기한다는 점이다.
@@ -217,7 +217,7 @@ WebElement el = new WebDriverWait(driver, Duration.ofSeconds(30))
 WebDriver driver = new ChromeDriver();
 // 요소를 찾을때마다 암묵적으로 10초간은 계속 탐색한다.
 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-driver.get("this.is.awesome.site");
+driver.get("http://this.is.awesome.site");
 
 // 암묵적 암시 10초가 지정되었으므로, 10초간 #result 요소를 계속 탐색한다.
 WebElement element = driver.findElement(By.id("result"));
@@ -253,7 +253,7 @@ WebElement element = wait.until(drv -> drv.findElement(By.id("result")));
 Thread.sleep(10000);   // 10초 대기한다
 ```
 
-### Reference
+## Reference
 
 * [Selenium Documentation](https://www.selenium.dev/documentation/overview/)
 * [Introduction to Chrome Headless with Java](https://www.scrapingbee.com/blog/introduction-to-chrome-headless/)
